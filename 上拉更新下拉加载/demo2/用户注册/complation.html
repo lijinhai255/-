@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport"
+        content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no"
+        viewport-fit=cover />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/complation.js"></script>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./complation.css">
+    <title>满满赚</title>
+</head> 
+
+<body>
+        <div class="login complate">
+        <div class="messageWor">
+            <span> <img src="./image/bj.png" alt=""></span>   <span>该信息将作为您的实名凭证，请确保真实</span>
+        </div>
+        <div class="main">
+            <div class="main_title">
+                <img src="./image/complate_title.png" alt="">
+            </div>
+            <form action="index.html" method="get">
+                <div class="form_li">
+                    <!-- <span class="icon icon_s"> </span> -->
+                    <label for="name">本人姓名</label>
+                    <input type="text" placeholder="请输入申请人姓名" maxlength="11" name='name' id="name" value=''>
+                </div>
+                <div class="form_li">
+                    <label for="id">身份证号</label>
+                    <input type="text"  oninput="if( this.value.length > 18 )  this.value = this.value.slice(0,18)" placeholder="请输入申请人身份证号" id="id" value='' name='id'>
+                </div>
+            </form>
+        </div>
+        <div class="button" id="submit" >
+            <img src="./image/complate_btn.png" alt="" >
+            <!-- <input type="submit" name="" id="submit" value="下一步"> -->
+        </div>
+
+    <div id="toast">
+        <span>圣诞快乐房价是领导看附件是考虑对方</span>
+    </div>
+</body>
+
+</html>

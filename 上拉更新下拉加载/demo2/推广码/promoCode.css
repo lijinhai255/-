@@ -1,0 +1,37 @@
+* {
+    margin                     : 0;
+    padding                    : 0;
+    box-sizing                 : border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: PingFangSC-Medium;
+    padding: .6rem 0;
+}
+
+h1 {
+    color      : #FED017;
+    font-size  : .48rem;
+    font-weight: 500;
+    line-height: .66rem;
+}
+
+h1,p{
+    padding    :0  .6rem;
+}
+.tips {
+    font-size  : .28rem;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color      : rgba(141, 144, 147, 1);
+    line-height: .4rem;
+    margin-top: .2rem;
+}
+.imgwraper {
+    padding: .28rem .4rem;
+}
+.imgwraper img{
+    display: block;
+    width: 100%;
+}

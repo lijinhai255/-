@@ -1,0 +1,119 @@
+* {
+    margin                     : 0;
+    padding                    : 0;
+    box-sizing                 : border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.center {
+    text-align: center;
+}
+
+body {
+    /* background-color: #FFFBE9; */
+    font-size       : 14px;
+    font-family     : PingFangSC-Medium;
+    /* padding-left: 0.4rem; */
+    /* padding-right: 0.4rem; */
+}
+.main{
+
+}
+.main >img{
+    width: 1.78rem;
+    height: 2.38rem;
+    margin-left: 2.96rem;
+    margin-top: 0.96rem;
+}
+.main p{
+    margin-top: 0.2rem;
+    font-size:0.32rem;
+    font-family:PingFangSC-Medium;
+    font-weight:600;
+    color:#333333;
+    padding-left: 3.12rem;
+    box-sizing: border-box;
+    margin-bottom: 0.78rem;
+}
+.content{
+    margin: 0 auto;
+    width:6.7rem;
+    height:6.54rem;
+    background:rgba(255,255,255,1);
+    box-shadow:0rem 0.04rem 0.2rem 0rem rgba(0,0,0,0.1);
+    border-radius:0.08rem;
+    position: relative;
+}
+.content .icon{
+    width: 1.16rem;
+    height: 1.16rem;
+    position: absolute;
+    left: 50%;
+    top:-0.58rem;
+    transform: translateX(-50%);
+}
+.content .icon .img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.main_text{
+    margin: 0 auto;
+    padding-top: 0.82rem;
+    width: 4.32rem;
+    text-align: center;
+    height:auto;
+    font-size:0.36rem;
+    font-family:PingFangSC-Medium;
+    font-weight:600;
+    color:rgba(51,51,51,1);
+    line-height:0.5rem;
+    padding-left: 0;
+    position: relative;
+    }
+    /* .content_mian{
+        display: flex;
+    } */
+    .main_text img{
+        width: 0.66rem;
+        height: 0.38rem;
+        position: absolute;
+        top:0.9rem;
+        left: 0;
+    }
+    .main_text img:nth-child(2){
+        right: 0;
+        left: auto;
+
+    }
+    .erweima{
+        width: 2.8rem;
+        height: 2.8rem;
+        margin: 0.42rem auto;
+    }
+    .erweima img{
+        display: block;
+        width: 100%;
+        height: 100%;;
+    }
+    p.footer_text{
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        font-size:0.36rem;
+        font-family:PingFangSC-Medium;
+        font-weight:600;
+        color:rgba(97,145,251,1);
+        line-height:0.5rem;
+    }
+    /* .content_mian img:nth-child(1){
+        
+    } */
+    /* p.main_text::before,p.main_text::after{
+        content: url("../image/pre.png");
+        display: block;
+        width: 0.66rem;
+        height: 0.38rem;
+        background-size: 0.66rem 0.38rem;
+
+    }     */

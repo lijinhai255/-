@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='referrer' content='always'>
+    <meta name='author' content='qiphon'>
+    <meta name='robots' content='none'>
+    <meta name='keywords' content=''>
+    <meta name='description' content=''>
+    <meta name='renderer' content='webkit'>
+    <meta name='revisit-after' content='7 days'>
+    <meta http-equiv=widow-target Content=_top>
+    <meta name='viewport'
+        content='width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no'
+        viewport-fit=cover />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge,chrome=1'>
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #cvsWraper {
+            width: 100%;
+            width: 100vw;
+            overflow: hidden;
+            font-family: 'DINAlertnateBold';
+        }
+
+        #cvs {
+            transform: scale(.5);
+            transform-origin: 0 0;
+        }
+        @font-face {
+            font-family: 'DINAlertnateBold';
+            src: url('./css/DINAlternateBold.ttf')
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cvsWraper">
+        <canvas id="cvs"></canvas>
+    </div>
+    <script>
+        var clientH = window.innerHeight;
+        var clientW = window.innerWidth;
+        var cvs = document.getElementById('cvs')
+        var ctx = cvs.getContext('2d')
+        var scale = clientW * 2 / 375;
+        function circleImg(ctx, img, x, y, r) {
+            ctx.save();
+            var d = 2 * r;
+            var cx = x + r;
+            var cy = y + r;
+            ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+            ctx.clip();
+            ctx.drawImage(img, x, y, d, d);
+            ctx.restore();
+        }
+        function drawImg(img, cb) {
+            if (img.complete && img.width) {
+                // console.dir((img.complete && img.width))
+                typeof cb === 'function' && cb(img)
+            } else {
+                img.onload = function () {
+                    typeof cb === 'function' && cb(img)
+                }
+            }
+        }
+        // 画圆角矩形
+        function roundedRect(ctx, x, y, width, height, radius, cb) {
+            ctx.save()
+            ctx.strokeStyle = "rgba(0,0,0,0)";
+            // ctx.strokeStyle = "red";
+            // ctx.lineWidth = 10 + 'px'
+            ctx.moveTo(x, y + radius);
+            ctx.lineTo(x, y + height - radius);
+            ctx.quadraticCurveTo(x, y + height, x + radius, y + height);
+            ctx.lineTo(x + width - radius, y + height);
+            ctx.quadraticCurveTo(x + width, y + height, x + width, y + height - radius);
+            ctx.lineTo(x + width, y + radius);
+            ctx.quadraticCurveTo(x + width, y, x + width - radius, y);
+            ctx.lineTo(x + radius, y);
+            ctx.quadraticCurveTo(x, y, x, y + radius);
+            ctx.stroke()
+            ctx.clip()
+            typeof cb === 'function' && cb()
+            ctx.restore()
+        }
+        // 写文字
+        function drawFont(ctx, obj) {
+            var fsize = obj.fsize || 18;
+            var lineH = obj.lineH || obj.fsize;
+            var color = obj.color || '#fff';
+            var text = obj.text || '';
+            var fWeight = obj.fWeight || 100
+            var family = obj.fimaly || 'PingFangSC-Semibold'
+            ctx.beginPath()
+            ctx.font = fWeight + ' ' + fsize + 'px/' + lineH + 'px ' + family
+            // console.log(fWeight + ' ' + fsize + 'px/' + lineH + 'px PingFangSC-Semibold')
+            ctx.fillStyle = color || '#fff'
+            if (obj.gradient) {
+                var grd = obj.gradient
+                var gradient = context.createLinearGradient(grd.startX, grd.startY, endX, endY);
+                gradient.addColorStop(0, grd.startC);
+                gradient.addColorStop(1, grd.endC);
+                // 设置填充样式为渐变
+                ctx.fillStyle = gradient;
+            }
+            // 设置对齐方式
+            ctx.textAlign = obj.align || 'left';
+            ctx.fillText(obj.text, obj.x, obj.y)
+            ctx.closePath()
+        }
+        // img 画图开始====================
+        var titleT = '国美易卡'
+        var bigT = '最高可贷'
+        var moneyT = '50000'
+        var tips1T = '有信用卡就能申请'
+        var tips2T = '最快30分钟到账'
+        var phone = '联系电话：13366060404'
+        var bgImg = new Image()
+        var bodyH;
+        // bgImg.src = (clientH > 720) ? './images/gmyk-bg-big@3x.png' : './images/gmyk-bg-sm@3x.png'
+        bgImg.src = './images/gmyk-bg-sm@3x.png'
+        var logoImg = new Image()
+        logoImg.src = './images/gongzhonghao.png'
+        var lineImg = new Image()
+        lineImg.src = './images/gmyk-line@3x.png'
+        var code = new Image()
+        code.src= './images/gongzhonghao.png'
+        var finishNum = 3
+        bgImg.onload = function () {
+            cvsW = clientW * scale
+            cvsH = this.height * clientW / this.width * scale
+            // console.log(clientW, cvsW, cvsH)
+            cvs.width = clientW * scale
+            bodyH = cvsH * clientW / cvsW
+            cvs.height = bodyH * scale
+            document.getElementById('cvsWraper').style.height = bodyH + 'px'
+            ctx.drawImage(bgImg, 0, 0, cvsW, cvsH)
+            // console.log(clientH)
+            roundedRect(ctx, 20 * scale, 64 * scale, 60 * scale, 60 * scale, 14 * scale, function () {
+                drawImg(logoImg, function (img) {
+                    // console.dir(img)
+                    finishNum--
+                    ctx.drawImage(img, 0, 0, img.width, img.height, 20 * scale, 64 * scale, 60 * scale, 60 * scale)
+                })
+            })
+            // 绘制文字 
+            drawFont(ctx, {
+                fsize: 18 * scale,
+                lineH: 25 * scale,
+                fWeight: 600,
+                text: titleT,
+                x: 90 * scale,
+                y: 103 * scale
+            })
+            drawFont(ctx, {
+                fsize: 72 * scale,
+                lineH: 100 * scale,
+                color: '#FFD263',
+                fWeight: 600,
+                text: bigT,
+                align: 'center',
+                x: 187.5 * scale,
+                y: 210 * scale
+            }) 
+            ctx.fillStyle= 'rgba(255, 255, 255, .29)'
+            ctx.fillRect(44*scale, 290*scale, 288*scale, 20*scale)
+            drawFont(ctx, {
+                fsize: 90 * scale,
+                lineH: 117 * scale,
+                color: '#FFD263',
+                fWeight: 600,
+                text: moneyT,
+                family: 'DINAlertnateBold',
+                align: 'center',
+                x: 187.5 * scale,
+                y: 310 * scale
+            })
+            drawFont(ctx, {
+                fsize: 20 * scale,
+                lineH: 28 * scale,
+                color: '#FFD263',
+                fWeight: 600,
+                text: tips1T,
+                align: 'center',
+                x: 187.5 * scale,
+                y: 340 * scale
+            })
+            drawFont(ctx, {
+                fsize: 20 * scale,
+                lineH: 28 * scale,
+                color: '#FFD263',
+                fWeight: 600,
+                text: tips2T,
+                align: 'center',
+                x: 187.5 * scale,
+                y: 368 * scale
+            })
+            drawFont(ctx, {
+                fsize: 18 * scale,
+                lineH: 25 * scale,
+                color: '#FFf',
+                text: phone,
+                align: 'center',
+                x: 187.5 * scale,
+                y: 426 * scale
+            })
+            drawImg(lineImg,function(img){
+                finishNum--
+                var len = ctx.measureText(tips1T).width > ctx.measureText(tips2T).width ? ctx.measureText(tips2T).width : ctx.measureText(tips1T).width
+                var leftSpace = (clientW * scale - len) / 2 
+                // console.log(len, leftSpace, clientW*scale)
+                ctx.drawImage(img,leftSpace-32*scale- 48*scale , 348*scale, 48*scale, 3*scale)
+                ctx.drawImage(img,leftSpace + len + 32*scale , 348*scale, 48*scale, 3*scale)
+            })
+            drawImg(code, function(img){
+                finishNum--
+                ctx.drawImage(img, 128*scale, 460*scale, 120*scale, 120*scale)
+            })
+        }
+        var interval = setInterval(function(){
+            if(!finishNum){
+                clearInterval(interval)
+                var base64 = cvs.toDataURL('image/jpeg', .8)
+                console.log(base64)
+            }
+        },2000)
+    </script>
+</body>
+
+</html>

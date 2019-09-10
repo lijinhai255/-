@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='referrer' content='always'>
+    <meta name='author' content='qiphon'>
+    <meta name='robots' content='none'>
+    <meta name='keywords' content=''>
+    <meta name='description' content=''>
+    <meta name='renderer' content='webkit'>
+    <meta name='revisit-after' content='7 days'>
+    <meta http-equiv=widow-target Content=_top>
+    <meta name='viewport'
+        content='width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no'
+        viewport-fit=cover />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge,chrome=1'>
+    <title>
+        下载页
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .main {
+            font-size: 16px;
+            background: #ffedc2;
+        }
+
+        .img {
+            display: block;
+            width: 100%;
+        }
+
+        .footer {
+            background: #fff;
+            padding-top: .6rem;
+        }
+
+        .footer p {
+            width: 6rem;
+            margin: 0 auto .6rem;
+        }
+
+        .footer a {
+            display: block;
+            text-decoration: none;
+            width: 6rem;
+            height: .88rem;
+            text-align: center;
+            line-height: .88rem;
+            font-weight: 600;
+            font-family:PingFangSC-Medium;
+            background: linear-gradient(90deg, rgba(255, 234, 62, 1) 0%, rgba(255, 206, 28, 1) 100%);
+            box-shadow:0rem 0.04rem 0.2rem 0rem rgba(0,0,0,0.1);
+            border-radius: .5rem;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        .footer img {
+            display: block;
+            width: 5.9rem;
+            margin: 0 auto;
+        }
+        #shadow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.7);
+            z-index: 99;
+            display: none;
+        }
+    #shadow img {
+        position: absolute;
+        right: .6rem;
+        top: .6rem;
+        width: 5.56rem;
+        height: 2.8rem;
+    }
+    </style>
+    <script src="./js/rem.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <img class="img" src="./images/down-mdd@2x.png" alt="">
+        <div class="footer" id="footer">
+            <p>“米多多”是一款零门槛的快捷金融分销信贷app，在这里有数百款产品能够实现一键代理，订单管理可以实时更新，多重奖励让你随时提现，欢迎你来下载哦～</p>
+            <a class="btn" id="load-apk" alt="">下载“米多多”APP</a>
+        </div>
+    </div>
+    <div id="shadow">
+        <img src="/images/down-mdd_wx@2x.png" alt="">
+    </div>
+    <script>
+        //定义变量
+        var andorAddresss = "http://midd.oss-cn-beijing.aliyuncs.com/mdd_1.0.15_201908071744.apk"
+        var iosAddresss = "https://www.jd.com/"
+        //定义方法 用于判断是否是微信黄健
+        function isWeiXin() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (isWeiXin()) {
+            // document.getElementById('load-apk').href = undefined;
+            document.getElementById('load-apk').onclick = function load(argument) {
+                // body...
+                document.getElementById('shadow').style.display = 'block';
+            }
+            document.getElementById("shadow").onclick = function disNone() {
+                document.getElementById('shadow').style.display = 'none';
+            }
+        } else {
+            console.log("进来了")
+            // document.getElementById('load-apk').href = d
+                
+                var u = navigator.userAgent;
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                console.log(isAndroid,"121")
+                if (isAndroid) {
+                    document.getElementById('load-apk').href = andorAddresss
+                    // document.getElementById('load-apk').href = andorAddresss
+                } else if (isiOS) {
+                    // document.getElementById('load-apk').href = iosAddresss
+                    document.getElementById('load-apk').href = iosAddresss
+                }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

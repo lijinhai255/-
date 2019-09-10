@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='referrer' content='always'>
+    <meta name='author' content='qiphon'>
+    <meta name='robots' content='none'>
+    <meta name='keywords' content=''>
+    <meta name='description' content=''>
+    <meta name='renderer' content='webkit'>
+    <meta name='revisit-after' content='7 days'>
+    <meta http-equiv=widow-target Content=_top>
+    <meta name='viewport'
+        content='width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no'
+        viewport-fit=cover />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge,chrome=1'>
+    <title>
+        你还在单打独斗吗？
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-size: 16px;
+            background: rgb(1, 99, 226);
+            padding-bottom: 1.54rem;
+        }
+        .container {
+        width: 100%;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+        .img {
+            display: block;
+            width: 100%;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px -5px 20px 0px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 2.04rem;
+            padding-top: .24rem;
+            /* width: 100vw; */
+        }
+
+        .footer a {
+            display: block;
+            margin: 0 auto;
+            height: .96rem;
+            width: 6.7rem;
+            line-height: .96rem;
+            text-align: center;
+            background: linear-gradient(90deg, rgba(255, 234, 62, 1) 0%, rgba(255, 206, 28, 1) 100%);
+            border-radius: .48rem;
+            font-size: .32rem;
+            font-family: PingFangSC-Medium;
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+    <script src="./js/rem.js"></script>
+</head>
+
+<body>
+    <img class="img" src="./images/apprentice@3x.png" alt="">
+    <div class="footer" id="footer">
+        <a href="javascript:void 0">我要收徒</a>
+    </div>
+    <script>
+        function isIphonX() {
+            // iPhone X、iPhone XS
+            var isIPhoneX = /iphone/gi.test(window.navigator.userAgent) && window.devicePixelRatio && window.devicePixelRatio === 3 && window.screen.width === 375 && window.screen.height === 812;
+            // iPhone XS Max
+            var isIPhoneXSMax = /iphone/gi.test(window.navigator.userAgent) && window.devicePixelRatio && window.devicePixelRatio === 3 && window.screen.width === 414 && window.screen.height === 896;
+            // iPhone XR
+            var isIPhoneXR = /iphone/gi.test(window.navigator.userAgent) && window.devicePixelRatio && window.devicePixelRatio === 2 && window.screen.width === 414 && window.screen.height === 896;
+            // console.log(isIPhoneX,isIPhoneXR,isIPhoneXSMax,'机型判断')
+            return isIPhoneX || isIPhoneXR || isIPhoneXSMax
+        }
+        if(!isIphonX()){
+            document.getElementById('footer').style.height = '1.54rem'
+        }
+    </script>
+</body>
+
+</html>

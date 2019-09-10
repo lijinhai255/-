@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no"
+        viewport-fit=cover />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js "></script>
+    <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./join-mmz.css">
+</head>
+
+<body>
+    <div class="container">
+        <img class="banner" src="../image/join-banner@2x.png" alt="">
+        <div id="join-header" class="main floor shadow-radius">
+            <img class="header" src="../image/join-header@2x.png" alt="">
+            <label class="input-wraper">
+                <img class="icon" src="../image/phone@2x.png" alt="">
+                <input type="tel" placeholder="请输入手机号" maxlength="11" id="phone">
+            </label>
+            <div class="input-wraper">
+                <img class="icon" src="../image/code@2x.png" alt="">
+                <input type="text" placeholder="请输入验证码" maxlength="11">
+                <span class="get-code">获取验证码</span>
+            </div>
+            <p class="btn"><strong>立即加入</strong></p>
+            <p class="agreement">点击立即加入即同意<a href="">《米多多条款》</a></p>
+        </div>
+        <div class="fenxiao shadow-radius floor">
+            <img class="header" src="../image/fenxiao-header@2x.png" alt="">
+            <div class="fx-content clearfix">
+                <span class="fl">专属海报</span>
+                <span class="fl">一键推广</span>
+                <span class="fl">团队作战</span>
+                <span class="fl">实时消息</span>
+                <span class="fl">干货攻略</span>
+                <span class="fl">发朋友圈</span>
+            </div>
+            <a href="javascript:scrollTo(0, 120)" class="btn-default">马上体验</a>
+        </div>
+        <div class="floor shadow-radius">
+            <img class="header" src="../image/jiesuan-header@2x.png" alt="">
+            <img class="js-content" src="../image/jiesuan-content@2x.png" alt="">
+            <p class="center js-tip">合作平台返回数据，米多多实时结算佣金</p>
+        </div>
+        <div class="floor shadow-radius bottom-bn">
+            <img class="header" src="../image/choose-header@2x.png" alt="">
+            <div class="join-content">
+                <div class="join-content-wrap clearfix">
+                    <div class="bn-item clearfix">
+                        <img class="fl" src="../image/bn-icon@2x.png" alt="">
+                        <p class="fr ts"><strong>赵女士，33岁，全职妈妈</strong></p>
+                        <p class="fr">自从有了宝宝，赵女士开始自己全职妈妈的生涯，伴随对孩子的专注，换来的是家庭开支逐渐变得紧张起来，生活质量有了明显的下降。当她想要重新找工作时，从朋友圈得知米多多后，试着推广了一下，没想到真的能挣钱，现在她不仅在家全职带宝宝，孩子的奶粉钱有着落了，而且全家的生活质量变得比生宝宝之前还要高了。
+                        </p>
+                    </div>
+                    <div class="bn-item clearfix">
+                        <img class="fl" src="../image/kuaidi@3x.png" alt="">
+                        <p class="fr ts"><strong>老王，49岁，公司职员</strong></p>
+                        <p class="fr">儿子刚刚考上名牌大学，家里老房子也要翻修一下了，通过朋友了解到了米多多，开始他抱着尝试着的心态用了用，谁知道没过多久，从米多多挣的钱已经超过了他的工资。儿子大学学费交了，房子也装修了，现在还赚了一笔小钱打算带着老婆、孩子暑假去旅游。</p>
+                    </div>
+                    <div class="bn-item clearfix">
+                        <img class="fl" src="../image/chuangye@3x.png" alt="">
+                        <p class="fr ts"> <strong>小刘，24岁，创业者 </strong></p>
+                        <p class="fr">大学毕业后打算做点小生意，结果以失败告终，还欠下了一笔债务，也没找到合适工作，过着水深火热的生活。偶然遇到米多多，零本万利，这让他重新燃起创业的心，现在每天努力推广，收入也逐渐增加，生活逐渐充满希望。</p>
+                    </div>
+                </div>
+            </div>
+            <p class="dot">
+                <span class="active"></span><span></span><span></span>
+            </p>
+        </div>
+    </div>
+    <a class="to-top" href="javascript:scrollTo(0, 120)">马上加入</a>
+    <div id="toast">
+        <span></span>
+    </div>
+    <div class="getCode">
+        <div class="getCode_mian">
+            <div class="getCode_header">
+                <h4>输入图形验证码</h4>
+                <div class="mian_getCode">
+                    <input type="text" maxlength="4" placeholder="请输入验证码">
+                </div>
+                <div class="main_getImg">
+                    <div class="getImg_left">
+                    </div>
+                    <div class="getImg_right">
+                        点击图片刷新
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer_left">
+                    取消
+                </div>
+                <div class="footer_right">
+                    确定   跳转
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        "use strict";
+        function isIphonX() {
+            // iPhone X、iPhone XS
+            var isIPhoneX = /iphone/gi.test(window.navigator.userAgent) && window.devicePixelRatio && window.devicePixelRatio === 3 && window.screen.width === 375 && window.screen.height === 812;
+            // iPhone XS Max
+            var isIPhoneXSMax = /iphone/gi.test(window.navigator.userAgent) && window.devicePixelRatio && window.devicePixelRatio === 3 && window.screen.width === 414 && window.screen.height === 896;
+            // iPhone XR
+            var isIPhoneXR = /iphone/gi.test(window.navigator.userAgent) && window.devicePixelRatio && window.devicePixelRatio === 2 && window.screen.width === 414 && window.screen.height === 896;
+            // console.log(isIPhoneX,isIPhoneXR,isIPhoneXSMax,'机型判断')
+            return isIPhoneX || isIPhoneXR || isIPhoneXSMax
+        }
+        !isIphonX() && $('.to-top').css({ height: '1rem' })
+        //验证手机号
+        $("#phone").on("focus", function (e) {
+            e.target.value = '';
+            $("#phone").removeClass("input-wraper-error")
+        })
+        $("#phone").on("input", function (e) {
+
+        })
+        $("#phone").on("blur", function (e) {
+            if (!(/^1\d{10}$/.test(e.target.value))) {
+                Toast("手机号格式不对")
+                $("#phone").addClass("input-wraper-error")
+            }
+        })
+
+        //获取验证码事件
+        $(".get-code").click(function () {
+            var phone = $("#phone").val();
+            // 先判断 phone 是否符合 
+            if (!(/^1\d{10}$/.test(phone))) {
+                Toast("手机号格式不对")
+                $("#phone").addClass("input-wraper-error")
+            } else {
+                $(".getCode").css({
+                    display: "block"
+                })
+                
+                getCode();
+            }
+        })
+        //获取验证码ajax
+        function getCode() {
+            $.ajax({
+                type: 'post',
+                url: 'https://www.easy-mock.com/mock/5d1ac5765cf87e56a47b23f8/example/getCode',
+                data: {
+                    // name: $("#name").val(),//用户名 
+                    // id: $("#id").val(),
+                    phone: $("#phone").val()
+                },
+                success: function (data) {
+                    var code = JSON.parse(data)
+                    var img  = data.img
+                    var newImg = 'data:image/jpeg;base64,' + img
+                    $(".getImg_left").css({ 'background-image':" url("+newImg+")", "background-repeat": "no-repeat", 'background-size': ' 2.4rem 0.88rem' })
+                },
+                error: function () {
+                    //失败时的方法
+                }
+            }
+            )
+        }
+        //图片刷新事件
+        $(".getImg_right").click(function () {
+            getCode()
+        })
+        //取消事件
+        $(".footer_left").click(function () {
+            $(".getCode").css({ display: "none" })
+        });
+        // 验证 验证码
+        //验证 验证码
+        $(".footer_right").click(function () {
+            $(".getCode").css({ display: "none" });
+            timeDown();//倒计时开始
+        })
+
+        //进行 倒计时 的方法
+        function timeDown() {
+            //成功时的方法
+            var timeflag = 60;
+            var clock = setInterval(function () {
+                if (timeflag > 0) {
+                    timeflag--;
+                    $(".get-code").text('重新发送(' + timeflag + 's)')
+                } else {
+                    clearInterval(clock);
+                    $('.get-code').text('获取验证码')
+                }
+            }, 1000)
+        }
+
+        // toast 提示
+        function Toast(msg, t) {
+            var ele = document.getElementById('toast');
+            var Ospan = ele.querySelector('span')
+            // console.log(ele,Ospan)
+            if (typeof msg === 'string') {
+                Ospan.innerHTML = msg;
+                ele.style.display = 'block';
+                setTimeout(function(){
+                    ele.style.display = 'none';
+                }, t ? t : 2000);
+            } else {
+                console.warn("param msg must be a String !");
+            }
+        }
+        //Toast("testddd数量大幅减少dd")
+        function debounce(cb, t) {
+            var timeout = null;
+            return function () {
+                if (timeout) {
+                    clearTimeout(timeout)
+                }
+                timeout = setTimeout(cb, t ? t : 1000)
+            }
+        }
+        // 移动的距离
+        // var scroll = 0;
+        // // 单个元素宽度
+        var itemW = $('.join-content').width()
+        var bnIndex = 0
+        var max = $('.join-content .bn-item').length
+        var isAnimateFinish = true
+        // $('.join-content .bn-item').eq(0).css("left",0)
+        // $('.join-content .bn-item').eq(1).css("left",'100%')
+        // $('.join-content .bn-item').eq(2).css("left",'-100%')
+        function moveFunction(index) {
+            var aniTime = 300
+            // console.log(isAnimateFinish)
+            if (!isAnimateFinish) return;
+                isAnimateFinish = false
+            index ? index : bnIndex;
+            var right = index > bnIndex ? false : true
+            if (index >= max) {
+                index = index = 0
+            }
+            if (index < 0) {
+                index = max - 1
+            }
+            bnIndex = index
+            // console.log(index)
+            var before = (index - 1 < 0) ? max - 1 : index - 1
+            var next = (index + 1 >= max) ? 0 : index + 1
+            // $('.join-content .bn-item').css({'left': 0})
+            $('.dot span').eq(bnIndex).addClass('active').siblings().removeClass('active')
+            if (right) {
+                $('.join-content .bn-item').eq(next).animate({ left: '100%' }, aniTime, 'linear')
+                $('.join-content .bn-item').eq(index).animate({ left: '0%' }, aniTime, 'linear', function () {
+                    setTimeout(function(){
+                        isAnimateFinish = true
+                    },2000)
+                })
+                $('.join-content .bn-item').eq(before).css({ left: '-100%' })
+            } else {
+                $('.join-content .bn-item').eq(before).animate({ left: '-100%' }, aniTime)
+                $('.join-content .bn-item').eq(index).animate({ left: '0%' }, aniTime, function () {
+                    isAnimateFinish = true
+                })
+                $('.join-content .bn-item').eq(next).css({ left: '100%' })
+            }
+
+        }
+        moveFunction(bnIndex)
+        setInterval(function () {
+            moveFunction(bnIndex + 1)
+        }, 5000)
+        // 底部的轮播事件
+        touchevent($('.join-content').get(0), {
+            left: function () {
+                moveFunction(bnIndex +1)
+            },
+            right: function () {
+                moveFunction(bnIndex -1)
+            }
+        }, 10)
+        // 滑动事件
+        /*
+        *   el      DOM   点击的元素
+        *   fncontainer obj 事件对象集合
+        *   offset  Num  事件触发的值
+        */
+        function touchevent(el, fncontainer, offset) {
+            var el = el ? el : window;
+            var offset = offset ? offset : 50;
+            var fncontainer = fncontainer ? fncontainer : false;
+            var startX, startY,
+                endX = 0,
+                endY = 0;
+            el.addEventListener('touchstart', function (e) {
+                // console.log(e)
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                // console.log("startX->"+startX,"startY ->"+startY)
+            }, false);
+            el.addEventListener('touchmove', function (e) {
+                endX = e.touches[0].clientX;
+                endY = e.touches[0].clientY;
+                // console.log("endX ->"+endX,"endY ->"+endY)
+            }, false);
+            el.addEventListener('touchend', function (e) {
+                var lengthX = endX == 0 ? 0 : Math.abs(startX - endX);
+                var lengthY = endY == 0 ? 0 : Math.abs(startY - endY);
+                // console.log("lengthX"+lengthX,"lengthY"+lengthY ,'startX->',startX, 'endx->' ,endX,'cha', startX-endX)
+                // console.log(fncontainer && lengthX > lengthY && lengthX >= offset && (startX - endX) > 0, fncontainer)
+                fncontainer && lengthX > lengthY && lengthX >= offset && (startX - endX) > 0 ?
+                    (fncontainer.left ? (fncontainer.left)() : null) : (fncontainer.right ? (fncontainer.right)() : null);
+
+                fncontainer && lengthY > lengthX && lengthY >= offset && (startY - endY) > 0 ?
+                    (fncontainer.up ? (fncontainer.up)() : null) : (fncontainer.down ? (fncontainer.down)() : null);
+
+            }, false);
+        }
+        //分享
+        ;(function shareToApp(obj) {
+          wx.config({
+                debug: false,
+                appId: obj.appId,
+                timestamp: obj.timestamp,
+                nonceStr: obj.nonceStr,
+                signature: obj.signature,
+                jsApiList: [ // 所有要调用的 API 都要加到这个列表中
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'hideMenuItems',
+                    'showMenuItems',
+                    'hideAllNonBaseMenuItem',
+                    'showAllNonBaseMenuItem',
+                    'translateVoice',
+                    'startRecord',
+                    'stopRecord',
+                    'onRecordEnd',
+                    'playVoice',
+                    'pauseVoice',
+                    'stopVoice',
+                    'uploadVoice',
+                    'downloadVoice',
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage',
+                    'downloadImage',
+                    'getNetworkType',
+                    'openLocation',
+                    'getLocation',
+                    'hideOptionMenu',
+                    'showOptionMenu',
+                    'closeWindow',
+                    'scanQRCode',
+                    'chooseWXPay',
+                    'openProductSpecificView',
+                    'addCard',
+                    'chooseCard',
+                    'openCard'
+                ],
+            });
+            wx.ready(function () { //必须写在wx.ready里面
+                var link = obj.link;
+                var imgPath = obj.img;  // 不大于300*300
+                var title = "";
+                var desc = "";
+                wx.onMenuShareTimeline({
+                    title: title, // 分享标题
+                    link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: imgPath, // 分享图标
+                    success: function () {
+
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.onMenuShareAppMessage({
+                    title: title,
+                    desc: desc,
+                    link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: imgPath, // 分享图标
+                    type: 'link', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () {
+
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.onMenuShareQQ({
+                    title: title, // 分享标题
+                    desc: desc,
+                    link: link, // 分享链接
+                    imgUrl: imgPath, // 分享图标
+                    success: function () {
+
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.onMenuShareWeibo({
+                    title: title, // 分享标题
+                    desc: desc,
+                    link: link, // 分享链接
+                    imgUrl: imgPath, // 分享图标
+                    success: function () {
+
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.onMenuShareQZone({
+                    title: title,
+                    desc: desc,
+                    link: link, // 分享链接
+                    imgUrl: imgPath, // 分享图标
+                    success: function () {
+
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+            });
+        })()
+
+    </script>
+    </body>
+
+</html>

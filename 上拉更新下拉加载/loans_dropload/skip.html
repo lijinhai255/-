@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
+    <title>列表页</title>
+    <link rel="stylesheet" href="./css/skip.css">
+</head>
+
+<body>
+    <div class="contain">
+        <div class="header">
+            <img src="./img/skip_icon.png" alt="">
+            <span class="mymove-contain">
+                <i class="move ar-animated  ar-delay-1s "></i>
+                <i class="move move1 ar-animated  ar-delay-2s "></i>
+                <i class="move move2 ar-animated  ar-delay-3s "></i>
+                <i class="move move3 ar-animated ar-delay-4s  "></i>
+            </span>
+            <img src="./img/skip_icon.png" alt="">
+        </div>
+        <p class="text">您即将跳到<span>国美易卡</span>进行操作</p>
+        <p class="text-title">-正在提交申请，获取服务中-</p>
+    </div>
+    <script type="text/javascript">
+        //设定倒数秒数
+        var t = 5;
+        //显示倒数秒数
+        function showTime() {
+            t -= 1;
+            console.log(t)
+            if (t == 0) {
+                //跳转的链接
+                location.href = 'http://www.baidu.com';
+            }
+            //每秒执行一次,showTime()
+            setTimeout("showTime()", 1000);
+        }
+        //执行showTime()
+        showTime();
+    </script>
+</body>
+
+
+</html>

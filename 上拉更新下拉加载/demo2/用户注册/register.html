@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport"
+        content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no"
+        viewport-fit=cover />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery.min.js"></script>
+     <script src="../js/rem.js"></script>
+     <script src="./js/carousel.js"></script>
+    <link rel="stylesheet" href="./register.css">
+    <title>满满赚</title>
+</head> 
+
+<body>
+    <div class="container">
+        <div class="carousel">
+            <ul class="carousel_container">
+            </ul>
+        </div>
+        <div class="banner">
+            <img src="./image/banner.png" alt="">
+        </div>
+        <div class="register">
+            <div class="register_title">
+                <img src="./image/register_title.png" alt="">
+            </div>
+            <div class="register_content">
+                <label class="input-wraper"  id="phonePart">
+                    <img class="icon" src="./image/phone@2x.png" alt="">
+                    <input type="tel" placeholder="请输入手机号" oninput="if( this.value.length > 11 )  this.value = this.value.slice(0,11)" maxlength="11" id="phone">
+                </label>
+                <div class="input-wraper ts">
+                    <img class="icon" src="./image/code@2x.png" alt="">
+                    <input type="number" placeholder="请输入验证码" id="message" oninput="if( this.value.length > 6 )  this.value = this.value.slice(0,6)"  maxlength="6" class="code" >
+                    <span class="get-code get-code-wait code_btn get_code_text">获取验证码</span>
+                    <!-- <span class="get-code get-code-wait">重新发送(20)</span> -->
+                </div>
+                 <input type="hidden" id="imgUrl" value="http://118.178.117.4:8000/authentication/img">
+                <input type="hidden" id="product_info_id" value="0">
+                <input type="hidden" id="openid" value="">
+                <input type="hidden" id="invite_code" value="4880757"> 
+            </div>
+        </div>
+         <div class="register_btn" id="nest_register">
+             <img src="./image/register_btn.png" alt="">
+         </div>
+         <a href="http://app-static.zspuhui.com/reg-agreement.html" style="text-decoration: none;"></a><p class="footer_text">点击立即加入即同意《米多多注册协议》</p></a>
+    </div>
+    <div id="toast">
+        <span></span>
+    </div>
+    <div class="getCode">
+        <div class="getCode_mian">
+            <div class="getCode_header">
+                <h4>输入图形验证码</h4>
+                <div class="mian_getCode">
+                    <input type="text" maxlength="4" placeholder="请输入验证码" id="code">
+                </div>
+                <div class="main_getImg">
+                    <div class="getImg_left">
+                    </div>
+                    <div class="getImg_right">
+                        点击图片刷新
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer_left">
+                    取消
+                </div>
+                <div class="footer_right">
+                    确定
+                </div>
+            </div>
+    </div>
+</div>
+    <script src="./js/login.js"> </script>
+</body>
+
+</html>

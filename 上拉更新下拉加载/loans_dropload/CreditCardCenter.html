@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
+    <title>列表页</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="./css/loans.css">
+    <style>
+        @media screen and (max-width:320px) {
+            .loans_item_mian {
+                width: 22rem;
+                margin-left: 0;
+            }
+
+            .loans_item_mian_left {
+                padding-right: 0rem;
+
+            }
+
+            .loans_item_mian_right {
+                float: left;
+            }
+        }
+        .loans_item{
+            height: 11.8rem;
+        }
+        .lists li .loans_item .loans_item_mian{
+            justify-content: start;
+            margin-top: 0;
+
+        }
+        .lists li .loans_item .loans_item_mian .loans_item_mian_left{
+            width: 9.17rem;
+            height: 6.3rem;
+            background: red;
+            border-radius: 0.5rem;
+
+        }
+        .lists li .loans_item .loans_item_mian .loans_item_mian_left img{
+            width: 100%;
+            height: 100%;
+
+
+        }
+        
+         .lists li .loans_item{
+            position: relative;
+        }
+        .lists li .loans_item .loans_item_mian p.title{
+            font-size:1.33rem;
+            font-family:PingFangSC;
+            font-weight:600;
+            color:rgba(51,51,51,1);
+            line-height:1.83rem;
+            margin-bottom: 0.5rem;
+
+        }
+        .loans_item_mian_mian{
+            margin-top:0;
+            margin-left: 0.67rem;
+        }
+        P.main_ts{
+            width:4.33rem;
+            height:1.67rem;
+            text-align: center;
+            margin-top: 0.5rem;
+            border-radius:0.17rem;
+            border:0.8px solid rgba(254,208,23,1);
+            border-radius:0.17rem;
+            font-size:0.92rem;
+            font-family:PingFangSC;
+            font-weight:400;
+            color:rgba(254,208,23,1);
+            line-height:1.67rem;
+            
+        }
+        .lists li .loans_item .loans_item_mian .loans_item_mian_right{
+            position: absolute;
+            right: 1.33rem;
+            bottom: 5rem;
+        }
+        .loans_item_bottom{
+            margin-top: 1rem;
+        }
+        
+        .loans_item:nth-child(1) {
+            border-top-left-radius: 0.33rem;
+            border-top-right-radius:0.33rem;
+        }
+        .lists li:last-of-type .loans_item{
+            border-top-left-radius: 0;
+            border-top-right-radius:0;
+            border-bottom-right-radius:0.33rem;
+            border-bottom-left-radius: 0.33rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="lists ">
+
+                  <li>
+                    <div class="loans_item">
+                
+                        <div class="loans_item_mian">
+                            <div class="loans_item_mian_left">
+                                <img src="./img/skip_icon.png" alt="">
+                
+                            </div>
+                            <div class="loans_item_mian_mian">
+                                <p class="title">兴业银行标准金卡</p>
+                                <p>已有2.5万人申请</p>
+                                <p class="main_ts">随时取现</p>
+                            </div>
+                            <div class="loans_item_mian_right">
+                                <span>立即申请</span>
+                            </div>
+                        </div>
+                
+                        <div class="loans_item_bottom">
+                            <span>
+                                门槛低、额度11111高、3分钟认证、10分钟到账
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="loans_item">
+                
+                        <div class="loans_item_mian">
+                            <div class="loans_item_mian_left">
+                                <img src="./img/skip_icon.png" alt="">
+                
+                            </div>
+                            <div class="loans_item_mian_mian">
+                                <p class="title">兴业银行标准金卡</p>
+                                <p>已有2.5万人申请</p>
+                                <p class="main_ts">随时取现</p>
+                            </div>
+                            <div class="loans_item_mian_right">
+                                <span>立即申请</span>
+                            </div>
+                        </div>
+                
+                        <div class="loans_item_bottom">
+                            <span>
+                                门槛低、额度11111高、3分钟认证、10分钟到账
+                            </span>
+                        </div>
+                    </div>
+                </li>
+               
+ 
+</script>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/dropload.min.js"></script>
+    <script>
+        $(function () {
+            //获取元素中的li节点
+            var lis;
+            // 获取tpl
+            var $tpl = $("#tpl");
+            // 获取内部文字
+            var template_str = $tpl.html();
+            var page = 0;
+            // dropload
+            var dropload = $('.inner').dropload({
+                domUp: {
+                    domClass: 'dropload-up',
+                    domRefresh: '<div class="dropload-refresh">↓下拉刷新</div>',
+                    domUpdate: '<div class="dropload-update">↑释放更新</div>',
+                    domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+                },
+                domDown: {
+                    domClass: 'dropload-down',
+                    domRefresh: '<div class="dropload-refresh">↑上拉加载更多</div>',
+                    domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+                    domNoData: '<div class="dropload-noData">暂无数据</div>'
+                },
+                loadUpFn: function (me) {
+                    console.log("刷新了")
+                    setTimeout(function () {
+                        //location.reload();
+                        //window.location.href=window.location.href+"?id="+10000*Math.random();
+                        window.location.href = location.href.split("?time")[0] + '?time=' + ((new Date()).getTime());
+                    }, 1000);
+                },
+                loadDownFn: function (me) {
+                    $.ajax({
+                        type: 'GET',
+                        url: `https://www.easy-mock.com/mock/5d1ac5765cf87e56a47b23f8/example/data?page=${page}`,
+                        dataType: 'json',
+                        success: function (data) {
+                            //var {data} =data;
+                            var arr = data.data;
+                            var newArr = []
+                            var htmlTpl = $.map(arr, function (item, index) {
+                                var result = template_str.replace(/<%\s*(\w+(\.\w+)*)%>/g, function (match, $1, $2) {
+                                    // 拿着$1去arr的某一个成员中寻找数据
+                                    // 第一步 以.分割$1 
+                                    var pathArr = $1.split(".");
+                                    // 定义变量保存原对象的引用
+                                    var obj = arr[index];
+                                    // 循环pathArr
+                                    for (var i = 0; i < pathArr.length - 1; i++) {
+                                        obj = obj[pathArr[i]];
+                                    }
+                                    return obj[pathArr[i]];
+                                })
+                                newArr.push(result)
+                            });
+                            //上树
+                            page++
+                            // 为了测试，延迟1秒加载
+                            setTimeout(function () {
+                                $(".lists").append(newArr.join(""));
+                                // 每次数据加载完，必须重置
+                                lis = document.getElementsByTagName("li");
+                                for (var i = 0; i < lis.length; i++) {
+                                    ; (function (i) {
+
+                                        lis[i].onclick = function () {
+                                            console.log(i, "11111111")
+
+                                            //  window.location.replace("/login.html")
+                                        }
+                                    })(i)
+                                }
+                                //进行判断
+                                if (newArr.length < 4) {
+                                    dropload.resetload();
+                                    $(".dropload-down").css({ display: "none" });
+                                    $(".final").css({ display: "block" })
+                                    console.log(dropload, "wwww")
+                                    // dropload.resetload();
+                                } else {
+                                    dropload.resetload();
+                                }
+
+                            }, 1000);
+
+                        },
+                        error: function (xhr, type) {
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

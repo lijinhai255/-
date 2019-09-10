@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no' viewport-fit=cover />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <title>满满赚</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="login">
+        <div class="header">
+            <div class="header_top">
+                <div class="header_top_left">
+                    <img src="" alt="">
+                </div>
+                <div class="header_top_right">
+                    <h4>国美易卡</h4>
+                    <p>4454人申请</p>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <div class="header_bottom_item">
+                    <div class="wraper">
+                        <h4>50,000元</h4>
+                        <p>最高可贷</p>
+                    </div>
+                </div>
+                <div class="header_bottom_item">
+                    <div class="wraper">
+                        <h4>最快三十分钟到账</h4>
+                        <p>最快放贷时间</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="main">
+            <form action="index.html" method="get">
+
+                <div class="form_li">
+                    <label for="phone">手机号</label>
+                    <input type="number" oninput="if( this.value.length > 11 )  this.value = this.value.slice(0,11)"
+                        placeholder="请输入申请人手机号" maxlength="11" id="phone" value='' name='phone'>
+                </div>
+                <div class="form_li">
+                    <!-- <span class="icon icon_code"></span> -->
+                    <label for="code">验证码</label>
+                    <input type="number" class="code" placeholder="请输入验证码"
+                        oninput="if( this.value.length > 6 )  this.value = this.value.slice(0,6)" maxlength="6"
+                        id="code" value='' name='code' style="width: 10rem">
+                    <div class="code_btn"><span class="get_code_text">获取验证码</span></div>
+                </div>
+            </form>
+        </div>
+        <div class="button">
+            <input type="submit" name="" id="submit" value="下一步">
+        </div>
+        <!-- 添加验证码弹层 -->
+        <div class="getCode">
+            <div class="getCode_mian">
+                <div class="getCode_header">
+                    <h4>输入图形验证码</h4>
+                    <div class="mian_getCode">
+                        <input type="text" maxlength="4" placeholder="请输入验证码">
+                    </div>
+                    <div class="main_getImg">
+                        <div class="getImg_left">
+                        </div>
+                        <div class="getImg_right">
+                            点击图片刷新
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="footer_left">
+                        取消
+                    </div>
+                    <div class="footer_right">
+                        确定
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="toast">
+            <span>圣诞快乐房价是领导看附件是考虑对方</span>
+        </div>
+        <script src="./js/login.js"></script>
+</body>
+
+</html>
